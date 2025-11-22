@@ -118,12 +118,28 @@ let scheduleLegs = [];
 
 // UI Switcher
 function switchTab(tab) {
+    // 1. Скрываем все страницы
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // 2. Убираем подсветку у всех кнопок
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-    document.getElementById(`page-${tab}`).classList.add('active');
-    // Highlight button
-    const index = tab === 'simple' ? 0 : 1;
-    document.querySelectorAll('.nav-item')[index].classList.add('active');
+    
+    // 3. Показываем нужную страницу
+    const page = document.getElementById(`page-${tab}`);
+    if (page) page.classList.add('active');
+
+    // 4. Подсвечиваем нужную кнопку
+    // Карта соответствия: название вкладки -> номер кнопки (0, 1, 2)
+    const tabMap = { 
+        'simple': 0, 
+        'schedule': 1, 
+        'about': 2 
+    };
+    
+    const index = tabMap[tab];
+    const buttons = document.querySelectorAll('.nav-item');
+    if (buttons[index]) {
+        buttons[index].classList.add('active');
+    }
 }
 
 // --- SIMPLE PAGE ---
@@ -369,4 +385,5 @@ function calculateSchedule() {
 }
 
 // Init
+
 addLeg();
