@@ -278,3 +278,28 @@ header {
     border-radius: 6px; /* Скругляем углы фона */
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
+/* --- Стили для страницы About --- */
+.about-text {
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.about-text h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.about-text h4 {
+    color: var(--text-sec);
+    margin-bottom: 5px;
+}
+
+.small-disclaimer {
+    font-size: 13px;
+    color: var(--text-sec);
+    background: rgba(255, 69, 58, 0.1); /* Легкий красноватый фон */
+    padding: 10px;
+    border-left: 3px solid var(--danger);
+    border-radius: 4px;
+}
