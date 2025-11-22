@@ -126,13 +126,16 @@ input[type="time"], input[type="text"] {
 }
 
 .btn-remove {
-    background: var(--danger);
-    color: white;
-    border: none;
+    background: var(--card-bg); /* Прозрачный фон */
+    border: 1px solid var(--danger); /* Красная рамка */
+    color: var(--danger);
     width: 30px;
     height: 30px;
     border-radius: 8px;
-    margin-left: 10px;
+    margin-left: 0; /* Убираем лишний отступ */
+    
+    /* Поднимаем кнопку в верхний правый угол */
+    order: 2; 
 }
 
 /* Results Table */
@@ -175,19 +178,48 @@ input[type="time"], input[type="text"] {
 /* Schedule Leg Row */
 .leg-row {
     background: var(--card-bg);
-    padding: 10px;
+    padding: 12px; /* Чуть больше отступа */
     border-radius: 8px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Самое важное: разрешаем перенос на новую строку */
 }
+
+/* Название Leg 1 */
+.leg-row strong {
+    order: 1; /* Название слева */
+    color: var(--primary);
+}
+
 .leg-inputs {
     display: flex;
     gap: 10px;
     align-items: center;
+    
+    /* Магия Flexbox: переносим этот блок на новую строку вниз */
+    order: 3; 
+    width: 100%; 
+    margin-top: 10px;
+    justify-content: space-between; /* Растаскиваем поля по краям */
 }
-.leg-inputs span { font-size: 12px; color: var(--text-sec); }
+
+/* Уменьшаем подписи STD/STA, чтобы не мешали */
+.leg-inputs span { 
+    font-size: 12px; 
+    color: var(--text-sec);
+    font-weight: bold;
+    width: 30px; /* Фиксируем ширину текста */
+}
+
+/* Делаем поля ввода широкими и удобными */
+.leg-inputs input[type="time"] {
+    flex: 1; /* Растягиваем поля, чтобы занять всё место */
+    text-align: center; /* Время по центру */
+    min-width: 0; /* Исправление для некоторых браузеров */
+    background: #2c2c2c; /* Чуть светлее фон для контраста */
+}
 
 .schedule-output {
     font-size: 12px;
