@@ -1,0 +1,226 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary: #0a84ff;
+    --text-main: #ffffff;
+    --text-sec: #a0a0a0;
+    --border: #333;
+    --danger: #ff453a;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll, handle in content */
+}
+
+.app-container {
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
+}
+
+header {
+    background-color: var(--card-bg);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    padding-bottom: 80px; /* Space for bottom nav */
+}
+
+/* Inputs */
+.input-group {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label {
+    color: var(--text-sec);
+    font-size: 14px;
+}
+
+input[type="time"], input[type="text"] {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    color-scheme: dark;
+}
+
+/* Stepper for Sectors */
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stepper button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#sector-display {
+    font-size: 18px;
+    font-weight: bold;
+    width: 20px;
+    text-align: center;
+}
+
+/* Buttons */
+.btn-calc {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn-outline {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--primary);
+    color: var(--primary);
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.btn-remove {
+    background: var(--danger);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+/* Results Table */
+.results-container {
+    margin-top: 25px;
+}
+
+.hidden { display: none; }
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: var(--card-bg);
+    border-radius: 8px;
+}
+
+.result-table th, .result-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.result-table th {
+    color: var(--text-sec);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.small-text td, .small-text th {
+    font-size: 12px;
+    padding: 6px;
+}
+
+/* Schedule Leg Row */
+.leg-row {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.leg-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.leg-inputs span { font-size: 12px; color: var(--text-sec); }
+
+.schedule-output {
+    font-size: 12px;
+    color: var(--text-sec);
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom); 
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: var(--text-sec);
+    font-size: 14px;
+    flex: 1;
+    height: 100%;
+    cursor: pointer;
+}
+
+.nav-item.active {
+    color: var(--primary);
+    font-weight: bold;
+}

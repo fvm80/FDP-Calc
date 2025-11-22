@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FDP Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e1e1e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png"> 
+</head>
+<body>
+
+    <div class="app-container">
+        <div id="page-simple" class="page active">
+            <header>Simple Calc</header>
+            <div class="content">
+                <div class="input-group">
+                    <label>Start of Duty (LT)</label>
+                    <input type="time" id="simple-start" value="06:00">
+                </div>
+                <div class="input-group">
+                    <label>No. of Sectors</label>
+                    <div class="stepper">
+                        <button onclick="changeSectors(-1)">-</button>
+                        <span id="sector-display">2</span>
+                        <button onclick="changeSectors(1)">+</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Split Start (LT)</label>
+                    <input type="time" id="simple-split-start">
+                </div>
+                <div class="input-group">
+                    <label>Split End (LT)</label>
+                    <input type="time" id="simple-split-end">
+                </div>
+
+                <button class="btn-calc" onclick="calculateSimple()">CALCULATE</button>
+
+                <div id="simple-results" class="results-container hidden">
+                    <h3>MAX FDP / ON BLOCK</h3>
+                    <div class="table-wrapper">
+                        <table class="result-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Max FDP</th>
+                                    <th>On Block</th>
+                                </tr>
+                            </thead>
+                            <tbody id="simple-table-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-schedule" class="page">
+            <header>Schedule (UTC)</header>
+            <div class="content">
+                <div class="input-group">
+                    <label>Home Base Offset (UTC+)</label>
+                    <input type="time" id="home-offset" value="04:00">
+                </div>
+
+                <div id="legs-container">
+                    </div>
+
+                <button class="btn-outline" onclick="addLeg()">+ Add Leg</button>
+                <button class="btn-calc" onclick="calculateSchedule()">CALCULATE</button>
+
+                <div class="schedule-output" id="schedule-lt-output">Schedule (LT): ---</div>
+
+                <div id="schedule-results" class="results-container hidden">
+                    <h3>FDP Records</h3>
+                    <div class="table-wrapper">
+                        <table class="result-table small-text">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Start</th>
+                                    <th>Stop</th>
+                                    <th>Break</th>
+                                    <th>Start 2</th>
+                                    <th>Stop 2</th>
+                                    <th>FDP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="records-table-body"></tbody>
+                        </table>
+                    </div>
+
+                    <h3 style="margin-top: 20px;">MAX FDP Limits</h3>
+                    <div class="table-wrapper">
+                        <table class="result-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Max FDP</th>
+                                    <th>On Block (UTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-max-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-item active" onclick="switchTab('simple')">
+            <span>Simple</span>
+        </button>
+        <button class="nav-item" onclick="switchTab('schedule')">
+            <span>Schedule</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
