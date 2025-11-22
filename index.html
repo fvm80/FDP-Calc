@@ -15,7 +15,7 @@
 
     <div class="app-container">
         <div id="page-simple" class="page active">
-            <header>Simple Calc</header>
+           <header><img src="logo.png" alt="Pecotox Air" class="header-logo"></header>
             <div class="content">
                 <div class="input-group">
                     <label>Start of Duty (LT)</label>
@@ -41,14 +41,14 @@
                 <button class="btn-calc" onclick="calculateSimple()">CALCULATE</button>
 
                 <div id="simple-results" class="results-container hidden">
-                    <h3>MAX FDP / ON BLOCK</h3>
+                    <h3>MAX FDP / Latest Time ON BLOCK</h3>
                     <div class="table-wrapper">
                         <table class="result-table">
                             <thead>
                                 <tr>
                                     <th>Type</th>
                                     <th>Max FDP</th>
-                                    <th>On Block</th>
+                                    <th>On Block (LT)</th>
                                 </tr>
                             </thead>
                             <tbody id="simple-table-body">
@@ -60,7 +60,7 @@
         </div>
 
         <div id="page-schedule" class="page">
-            <header>Schedule (UTC)</header>
+            <header><img src="logo.png" alt="Pecotox Air" class="header-logo"></header>
             <div class="content">
                 <div class="input-group">
                     <label>Home Base Offset (UTC+)</label>
@@ -128,4 +128,5 @@
         }
     </script>
 </body>
+
 </html>
