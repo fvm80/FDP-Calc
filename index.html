@@ -72,9 +72,9 @@
                     </div>
 
                 <button class="btn-outline" onclick="addLeg()">+ Add Leg</button>
-                <button class="btn-calc" onclick="calculateSchedule()">CALCULATE</button>
-
                 <div class="schedule-output" id="schedule-lt-output">Schedule (LT): ---</div>
+                
+                <button class="btn-calc" onclick="calculateSchedule()">CALCULATE</button>
 
                 <div id="schedule-results" class="results-container hidden">
                     <h3>FDP Records</h3>
@@ -86,8 +86,8 @@
                                     <th>Start</th>
                                     <th>Stop</th>
                                     <th>Break</th>
-                                    <th>Start 2</th>
-                                    <th>Stop 2</th>
+                                    <th>Start</th>
+                                    <th>Stop</th>
                                     <th>FDP</th>
                                 </tr>
                             </thead>
@@ -95,7 +95,7 @@
                         </table>
                     </div>
 
-                    <h3 style="margin-top: 20px;">MAX FDP Limits</h3>
+                    <h3 style="margin-top: 20px;">MAX FDP / Latest Time ON BLOCK</h3>
                     <div class="table-wrapper">
                         <table class="result-table">
                             <thead>
@@ -186,11 +186,11 @@
 
         <h4>Disclaimer</h4>
         <p class="small-disclaimer">
-            This tool is for reference only. The official OM-A documentation always takes precedence. The pilot-in-command is responsible for ensuring compliance with FDP limitations.
+            This tool is for reference only! The official OM-A documentation always takes precedence. The pilot-in-command is responsible for ensuring compliance with FDP limitations.
         </p>
 
         <div style="margin-top: 30px; text-align: center; opacity: 0.5; font-size: 12px;">
-            © 2025 Pecotox Air
+            © 2025 Developed by Victor Fostei
         </div>
     </div>
 </div>
@@ -221,6 +221,7 @@
 </body>
 
 </html>
+
 
 
 
