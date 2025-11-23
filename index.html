@@ -111,32 +111,90 @@
                 </div>
             </div>
         </div>
-        <div id="page-about" class="page">
-            <header>
-                <img src="logo.png" alt="Pecotox Air" class="header-logo">
-            </header>
-            <div class="content about-text">
-                <h3>FDP Calculator</h3>
-                <p><strong>Version:</strong> 1.0.0</p>
-                <p> FDP Calculator is a simple tool for planning crew duties in accordance with Flight Time Limitations (FTL). It is divided into two tabs: SIMPLE and SCHEDULE. 
-                    <br> In the SIMPLE tab, FTL is calculated based on:
-                    <br>  Start of duty - the reporting time for duty,
-                    <br>  No. of planned sectors - the number of sectors planned for one duty,
-                    <br>  Split Start - STA of flight preceding split,
-                    <br>  Split End - STD of flight following split.</p>
-                
-                <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-                
-                <h4>Disclaimer</h4>
-                <p class="small-disclaimer">
-                    This tool is for reference only. The official OM-A documentation always takes precedence. The pilot in command is responsible for ensuring compliance with FDP limitations.
-                </p>
+       <div id="page-about" class="page">
+    <header>
+        <img src="logo.png" alt="Pecotox Air" class="header-logo">
+    </header>
 
-                <div style="margin-top: 30px; text-align: center; opacity: 0.5; font-size: 12px;">
-                    © 2025 Victor Fostei
-                </div>
-            </div>
-        </div>  
+    <div class="content about-text">
+        <h3>FDP Calculator</h3>
+        <p><strong>Version:</strong> 1.0.0</p>
+
+        <section class="intro">
+            <p>
+                The <strong>FDP Calculator</strong> helps plan crew duties in line with Pecotox Air OM-A Flight Time Limitations (FTL).
+                The tool has two main tabs: <em>SIMPLE</em> (quick calculations) and <em>SCHEDULE</em> (full timetable-based calculations).
+            </p>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+
+        <section class="simple-tab">
+            <h4>SIMPLE tab — Quick FDP calculation</h4>
+            <p>Use this tab for a fast FDP estimate using basic duty parameters.</p>
+            <p><em>Note: All times are shown in Local Time (LT) based on the crew's acclimatised timezone.</em></p>
+            <ul>
+                <li><strong>Start of Duty</strong> — reporting time for the duty.</li>
+                <li><strong>No. of Planned Sectors</strong> — number of sectors planned for this duty.</li>
+                <li><strong>Split Start</strong> — STA of the flight before the split (if a break ≥ 4 hours is planned).</li>
+                <li><strong>Split End</strong> — STD of the flight after the split.</li>
+            </ul>
+            <p><strong>Results included:</strong></p>
+            <ul>
+                <li><strong>Basic (Standard Crew)</strong> — maximum FDP for standard crew (OMA 7.8.1).</li>
+                <li><strong>With Extension</strong> — maximum FDP with extension (OMA 7.8.3).</li>
+                <li><strong>Split</strong> — maximum FDP with Split Duty extension (OMA 7.11).</li>
+                <li><strong>Crew+ (3,4)</strong> — maximum FDP for augmented crews (OMA 7.8.4).</li>
+                <li><strong>Latest Time ON BLOCK</strong> — latest allowed end-of-duty time (ON BLOCK of the final sector).</li>
+            </ul>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #ddd; margin: 18px 0;">
+
+        <section class="schedule-tab">
+            <h4>SCHEDULE tab — Full schedule calculation</h4>
+            <p>Use this tab to calculate FDPs from a full flight schedule (multiple legs).</p>
+
+            <ol>
+                <li>
+                    <strong>Set Home Base Offset</strong><br>
+                    Difference between Home Base local time and UTC. Default: <code>+4:00 (UAE)</code>.
+                </li>
+                <li>
+                    <strong>Enter Flight Schedule</strong><br>
+                    Insert <code>STD</code> and <code>STA</code> in <strong>UTC only</strong>. Add legs with <em>+ Add Leg</em>, remove with <em>X</em>.
+                </li>
+            </ol>
+
+            <p>While entering the schedule the tool will show the timeline converted to Home Base Local Time under the <strong>Calculate</strong> button.</p>
+
+            <p><strong>Important:</strong> only the break between the <em>last two</em> sectors can be considered for Split Duty, even if other breaks exist.</p>
+
+            <p><strong>Results included:</strong></p>
+            <ul>
+                <li><strong>FDP Records Table</strong> — formatted like Journey Log entries; shows times in both UTC and LT and the calculated FDP.</li>
+                <li><strong>MAX FDP / Latest Time ON BLOCK Table</strong> — same FDP results as in SIMPLE, with Latest Time ON BLOCK displayed in UTC.</li>
+            </ul>
+        </section>
+
+        <div style="margin-top: 20px;">
+            <!-- local path to the uploaded DOCX file -->
+            <a href="FDP_Calculator_instr.pdf" download>Download full user guide (PDF)</a>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+
+        <h4>Disclaimer</h4>
+        <p class="small-disclaimer">
+            This tool is for reference only. The official OM-A documentation always takes precedence. The pilot-in-command is responsible for ensuring compliance with FDP limitations.
+        </p>
+
+        <div style="margin-top: 30px; text-align: center; opacity: 0.5; font-size: 12px;">
+            © 2025 Pecotox Air
+        </div>
+    </div>
+</div>
+
     
     </div>
 
@@ -163,6 +221,7 @@
 </body>
 
 </html>
+
 
 
 
